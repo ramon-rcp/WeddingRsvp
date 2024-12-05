@@ -84,7 +84,7 @@ export class WeddingApp extends Component<{}, WeddingAppState> {
     )
   }
 
-  doAddServerClick = (guest: string, host: "Molly" | "James", isFamily: boolean, 
+  doAddServerClick = (guest: string, host: "Bride" | "Groom", isFamily: boolean, 
     plusone?: 0 | 1, plusonename?: string, restrictions?: {guest: string, addguest?: string}): void => {
     const name = guest.trim();
     const newGuest: Guest = {name: guest, info: {
