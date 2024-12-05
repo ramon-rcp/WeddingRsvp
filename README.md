@@ -7,14 +7,14 @@ This project is a client-server web application designed to help manage wedding 
 ### Core Features
 1. **View Guest List**:
    - Displays all guests added so far.
-   - Indicates whether guests are invited by James or Molly.
+   - Indicates whether guests are invited by groom or bride.
    - Shows if each guest is bringing an additional guest.
-   - Summarizes the number of guests invited by James and Molly, and the number of family members invited.
+   - Summarizes the number of guests invited by groom and bride, and the number of family members invited.
 
 2. **Add Guests**:
-   - Allows James and Molly to add a guest with the following details:
+   - Allows groom and bride to add a guest with the following details:
      - Guest name.
-     - Whether they are invited by James or Molly.
+     - Whether they are invited by groom or bride.
      - Whether they are family.
    - Validates input, showing error messages for missing fields.
 
