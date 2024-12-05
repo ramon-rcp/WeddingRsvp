@@ -1,13 +1,13 @@
 import React, { Component, ChangeEvent, MouseEvent } from "react";
 
 type AddGuestProps = {
-    onAdd: (guest: string, host: "Molly" | "James", isFamily: boolean) => void;
+    onAdd: (guest: string, host: "Bride" | "Groom", isFamily: boolean) => void;
     onBack: () => void;
 }
 
 type AddGuestState = {
     guest: string;
-    host: "" | "Molly" | "James";
+    host: "" | "Bride" | "Groom";
     isFamily: boolean;
     errormsg: "" | "Error: You have to choose a host" | "Error: You have to specify the guest's name";
 }
@@ -28,8 +28,8 @@ export class AddGuest extends Component<AddGuestProps, AddGuestState> {
             </div>
             <div>
                 <div><label>Guest of: </label></div>
-                <div><input type="radio" name="host" value="Molly" onChange={this.doMollyClick}></input>Molly</div>
-                <div><input type="radio" name="host" value="James" onChange={this.doJamesClick}></input>James</div>
+                <div><input type="radio" name="host" value="Bride" onChange={this.doBrideClick}></input>Bride</div>
+                <div><input type="radio" name="host" value="Groom" onChange={this.doGroomClick}></input>Groom</div>
             </div>
             <div>
                 <input type="checkbox" name="Family" value="Family" onChange={this.doFamilyClick}></input>Family
@@ -43,12 +43,12 @@ export class AddGuest extends Component<AddGuestProps, AddGuestState> {
         this.setState({guest: evt.target.value, errormsg: ""})
     }
 
-    doMollyClick = (_evt: ChangeEvent<HTMLInputElement>): void => {
-        this.setState({host: "Molly", errormsg: ""})
+    doBrideClick = (_evt: ChangeEvent<HTMLInputElement>): void => {
+        this.setState({host: "Bride", errormsg: ""})
     }
 
-    doJamesClick = (_evt: ChangeEvent<HTMLInputElement>): void => {
-        this.setState({host: "James", errormsg: ""})
+    doGroomClick = (_evt: ChangeEvent<HTMLInputElement>): void => {
+        this.setState({host: "Groom", errormsg: ""})
     }
 
     doFamilyClick = (evt: ChangeEvent<HTMLInputElement>): void => {
