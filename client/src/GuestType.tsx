@@ -1,5 +1,5 @@
 export type Guest = {name: string, 
-  info: {host: "Molly" | "James", isFamily: boolean, plusone: undefined | 0 | 1, plusonename?: string,
+  info: {host: "Bride" | "Groom", isFamily: boolean, plusone: undefined | 0 | 1, plusonename?: string,
     restrictions?: {guest: string, addguest?: string}}};
 
 
