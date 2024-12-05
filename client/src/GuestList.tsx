@@ -9,14 +9,14 @@ type GuestListProps = {
 
 type GuestListState = {
     guests: unknown[] | undefined;
-    mollyg: {total: number, family: number, extra: number} | undefined; //extra is the number of undefined plusones
-    jamesg: {total: number, family: number, extra: number} | undefined;
+    Brideg: {total: number, family: number, extra: number} | undefined; //extra is the number of undefined plusones
+    Groomg: {total: number, family: number, extra: number} | undefined;
 }
 
 export class GuestList extends Component<GuestListProps, GuestListState> {
     constructor(props: GuestListProps) {
         super(props);
-        this.state = {guests: undefined, mollyg: undefined, jamesg: undefined}
+        this.state = {guests: undefined, Brideg: undefined, Groomg: undefined}
     }
 
     render = (): JSX.Element => {
@@ -24,7 +24,7 @@ export class GuestList extends Component<GuestListProps, GuestListState> {
             this.doUpdateListChange();
             return <div>LOADING...</div>
         }
-        if(this.state.jamesg === undefined || this.state.mollyg === undefined) {
+        if(this.state.Groomg === undefined || this.state.Brideg === undefined) {
             this.doUpdateGuestCountChange(0, {total: 0, family: 0, extra: 0}, {total: 0, family: 0, extra: 0})
             return <div>LOADING...</div>
         }
@@ -32,10 +32,10 @@ export class GuestList extends Component<GuestListProps, GuestListState> {
             <div><h1>Guest List</h1></div>
             <div>{this.renderList([], 0)}</div>
             <div><h2>Summary</h2></div>
-            <div>{this.state.mollyg.total}{(this.state.mollyg.extra===0) ? " " : "-"+(this.state.mollyg.total + this.state.mollyg.extra)+" "}
-                guest(s) of Molly ({this.state.mollyg.family} family)</div>
-            <div>{this.state.jamesg.total}{(this.state.jamesg.extra===0) ? " " : "-"+(this.state.jamesg.total + this.state.jamesg.extra)+" "}
-                guest(s) of James ({this.state.jamesg.family} family)</div>
+            <div>{this.state.Brideg.total}{(this.state.Brideg.extra===0) ? " " : "-"+(this.state.Brideg.total + this.state.Brideg.extra)+" "}
+                guest(s) of Bride ({this.state.Brideg.family} family)</div>
+            <div>{this.state.Groomg.total}{(this.state.Groomg.extra===0) ? " " : "-"+(this.state.Groomg.total + this.state.Groomg.extra)+" "}
+                guest(s) of Groom ({this.state.Groomg.family} family)</div>
             <div><button onClick={this.doOpenAddGuestClick}>Add Guest</button></div>
         </div>
     }
@@ -63,12 +63,12 @@ export class GuestList extends Component<GuestListProps, GuestListState> {
             throw new Error("no guests fetched yet")
         }
         if(i === this.state.guests.length){
-            this.setState({mollyg: mg, jamesg: jg})
+            this.setState({Brideg: mg, Groomg: jg})
             return 1;
         }
         else{
             const g: Guest = fromJson(this.state.guests[i]);
-            if(g.info.host === "James"){
+            if(g.info.host === "Groom"){
                 const newtotal: number = (g.info.plusone===1) ? jg.total + 2 : jg.total + 1;
                 const newfam: number = (g.info.isFamily) ? jg.family + 1 : jg.family;
                 const newextra: number = (g.info.plusone===undefined) ? jg.extra + 1 : jg.extra;
